@@ -896,18 +896,22 @@
             }
             
             .hero-main-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                grid-template-columns: 1fr 2fr 1fr;
+                gap: 1.5rem;
                 text-align: center;
             }
             
             .hero-text {
-                grid-column: 1;
+                grid-column: 2;
             }
             
             .hero-image-left,
             .hero-image-right {
-                display: none;
+                display: block;
+            }
+
+            .hero-image {
+                max-width: 200px;
             }
 
             .hero h1 {
@@ -953,6 +957,15 @@
             .hero {
                 min-height: 70vh;
                 padding: 140px 0 30px;
+            }
+
+            .hero-main-content {
+                grid-template-columns: 1fr 2fr 1fr;
+                gap: 1rem;
+            }
+
+            .hero-image {
+                max-width: 150px;
             }
             
             .hero h1 {
@@ -1022,6 +1035,45 @@
         }
 
         @media (max-width: 480px) {
+            .hero-main-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .hero-text {
+                grid-column: 1;
+                order: 2;
+            }
+
+            .hero-image-left,
+            .hero-image-right {
+                grid-column: 1;
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero-image-left {
+                order: 1;
+            }
+
+            .hero-image-right {
+                order: 3;
+            }
+
+            .hero-image {
+                max-width: 120px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
             .feature-card {
                 padding: 1.5rem 0.5rem;
             }
