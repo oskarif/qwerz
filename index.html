@@ -368,8 +368,52 @@
         }
 
         .cta-content {
-            max-width: 600px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .cta-text {
+            grid-column: 2;
+            text-align: center;
+        }
+
+        .cta-image-left {
+            grid-column: 1;
+            justify-self: center;
+        }
+
+        .cta-image-right {
+            grid-column: 3;
+            justify-self: center;
+        }
+
+        .cta-image {
+            max-width: 250px;
+            height: auto;
+            opacity: 0.8;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .cta-image:hover {
+            transform: translateY(-5px);
+            opacity: 1;
+        }
+
+        .cta-image-left .cta-image {
+            transform: rotate(-5deg);
+        }
+
+        .cta-image-right .cta-image {
+            transform: rotate(5deg);
+        }
+
+        .cta-image-left .cta-image:hover,
+        .cta-image-right .cta-image:hover {
+            transform: translateY(-5px) rotate(0deg);
         }
 
         .cta-section h2 {
@@ -406,6 +450,21 @@
             
             .hero-image-left,
             .hero-image-right {
+                display: none;
+            }
+
+            .cta-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .cta-text {
+                grid-column: 1;
+            }
+            
+            .cta-image-left,
+            .cta-image-right {
                 display: none;
             }
         }
@@ -701,12 +760,20 @@
     <!-- CTA Section -->
     <section class="cta-section" id="demo">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Deal Management?</h2>
-                <p>Join the carriers who've already eliminated manual errors and accelerated their deal cycles. See Signature in action with your own data.</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Start Free Trial</a>
-                    <a href="#" class="btn-secondary">Schedule Demo</a>
+            <div class="cta-content fade-in-up">
+                <div class="cta-image-left fade-in-up stagger-1">
+                    <img src="images/undraw_adventure_9my9.svg" alt="Adventure" class="cta-image">
+                </div>
+                <div class="cta-text">
+                    <h2>Ready to Transform Your Deal Management?</h2>
+                    <p>Join the carriers who've already eliminated manual errors and accelerated their deal cycles. See Signature in action with your own data.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn-primary">Start Free Trial</a>
+                        <a href="#" class="btn-secondary">Schedule Demo</a>
+                    </div>
+                </div>
+                <div class="cta-image-right fade-in-up stagger-3">
+                    <img src="images/undraw_connected-world_anke.svg" alt="Connected World" class="cta-image">
                 </div>
             </div>
         </div>
