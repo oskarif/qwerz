@@ -280,35 +280,29 @@
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
+            gap: 2rem;
             margin-top: 3rem;
-        }
-        
-        @media (max-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .feature-card {
             display: flex;
             align-items: flex-start;
             gap: 1.5rem;
+            padding: 1.5rem;
         }
 
         .feature-icon {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 12px;
-            font-size: 1.5rem;
             flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-icon img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .feature-icon:hover {
+            transform: scale(1.05);
         }
 
         .feature-content h3 {
@@ -416,6 +410,20 @@
             }
         }
 
+        @media (max-width: 1200px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -425,6 +433,16 @@
                 font-size: 1.1rem;
             }
             
+            .feature-card {
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+            
+            .feature-icon img {
+                width: 60px;
+                height: 60px;
+            }
+            
             .benefits-container {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -432,6 +450,20 @@
             
             .nav-links {
                 display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
+            }
+            
+            .feature-icon img {
+                width: 50px;
+                height: 50px;
             }
         }
 
@@ -501,7 +533,9 @@
             
             <div class="features-grid">
                 <div class="feature-card fade-in-up stagger-1">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon">
+                        <img src="images/undraw_analytics_6mru.svg" alt="Analytics">
+                    </div>
                     <div class="feature-content">
                         <h3>Real-Time Analytics & Dashboards</h3>
                         <p>Track deal performance with live traffic data and projections. Get instant visibility into your portfolio's health and identify opportunities.</p>
@@ -509,7 +543,9 @@
                 </div>
                 
                 <div class="feature-card fade-in-up stagger-2">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon">
+                        <img src="images/undraw_artificial-intelligence_43qa.svg" alt="Artificial Intelligence">
+                    </div>
                     <div class="feature-content">
                         <h3>Intelligent Deal Creation</h3>
                         <p>Build complex agreements in minutes, not hours. Our smart templates adapt to your deal structure while ensuring accuracy every time.</p>
@@ -517,7 +553,9 @@
                 </div>
                 
                 <div class="feature-card fade-in-up stagger-3">
-                    <div class="feature-icon">🔄</div>
+                    <div class="feature-icon">
+                        <img src="images/undraw_hr-presentation_uunk.svg" alt="HR Presentation">
+                    </div>
                     <div class="feature-content">
                         <h3>Smart Approval Workflows</h3>
                         <p>Set up approval chains that match your organization. Email and in-app notifications keep everyone informed and deals moving at speed.</p>
@@ -525,7 +563,9 @@
                 </div>
                 
                 <div class="feature-card fade-in-up stagger-1">
-                    <div class="feature-icon">🎯</div>
+                    <div class="feature-icon">
+                        <img src="images/undraw_goals_0pov.svg" alt="Goals">
+                    </div>
                     <div class="feature-content">
                         <h3>Deal Outcome Simulation</h3>
                         <p>Model different scenarios before you negotiate. See exactly how pricing changes affect your bottom line with precise calculations.</p>
@@ -533,7 +573,9 @@
                 </div>
                 
                 <div class="feature-card fade-in-up stagger-2">
-                    <div class="feature-icon">📚</div>
+                    <div class="feature-icon">
+                        <img src="images/undraw_file-search_cbur.svg" alt="File Search">
+                    </div>
                     <div class="feature-content">
                         <h3>Complete Deal Archive</h3>
                         <p>Every version, every amendment, every change tracked automatically. Never lose context or repeat past mistakes.</p>
@@ -541,7 +583,9 @@
                 </div>
                 
                 <div class="feature-card fade-in-up stagger-3">
-                    <div class="feature-icon">🧠</div>
+                    <div class="feature-icon">
+                        <img src="images/undraw_instant-analysis_vm8x.svg" alt="Instant Analysis">
+                    </div>
                     <div class="feature-content">
                         <h3>Proactive Market Intelligence</h3>
                         <p>Automatic tracking of underlying cost and price changes by destination. Get notified when market shifts create opportunities to optimize your existing deals.</p>
@@ -549,7 +593,9 @@
                 </div>
                 
                 <div class="feature-card fade-in-up stagger-1">
-                    <div class="feature-icon">🔗</div>
+                    <div class="feature-icon">
+                        <img src="images/undraw_server-cluster_7ugi.svg" alt="Server Cluster">
+                    </div>
                     <div class="feature-content">
                         <h3>Seamless Integration</h3>
                         <p>Connect with your existing routing, billing, and pricing systems. Or use our standalone SaaS with simple data uploads.</p>
@@ -557,7 +603,9 @@
                 </div>
                 
                 <div class="feature-card fade-in-up stagger-2">
-                    <div class="feature-icon">🗂️</div>
+                    <div class="feature-icon">
+                        <img src="images/undraw_text-files_tqjw.svg" alt="Text Files">
+                    </div>
                     <div class="feature-content">
                         <h3>Numbering Plan Management</h3>
                         <p>Keep your destination data fresh and accurate with automated updates. Never miss routing changes or new market opportunities.</p>
@@ -565,7 +613,9 @@
                 </div>
                 
                 <div class="feature-card fade-in-up stagger-3">
-                    <div class="feature-icon">📈</div>
+                    <div class="feature-icon">
+                        <img src="images/undraw_growth-chart_h2w8.svg" alt="Growth Chart">
+                    </div>
                     <div class="feature-content">
                         <h3>Advanced Deal Tracking</h3>
                         <p>Monitor deal performance with live traffic data and projections. Track net costs and revenue in real-time for better decision making.</p>
