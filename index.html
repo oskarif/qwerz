@@ -220,7 +220,7 @@
         /* Problem Section */
         .problem-section {
             padding: 80px 0;
-            background: #f7fafc;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
         }
 
         .problem-grid {
@@ -231,29 +231,73 @@
         }
 
         .problem-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            transition: transform 0.3s ease;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            border-radius: 2px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .problem-card:hover::before {
+            opacity: 1;
         }
 
         .problem-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
 
         .problem-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1rem;
-            opacity: 0.8;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .problem-icon img {
+            width: 100px;
+            height: 100px;
+            filter: drop-shadow(0 4px 12px rgba(229, 62, 62, 0.2));
+            transition: all 0.3s ease;
         }
 
         .problem-icon:hover {
-            transform: scale(1.1);
-            opacity: 1;
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .problem-icon:hover img {
+            filter: drop-shadow(0 8px 20px rgba(229, 62, 62, 0.3));
+        }
+
+        .problem-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .problem-card p {
+            color: #718096;
+            line-height: 1.7;
+            font-size: 1rem;
+            max-width: 280px;
+            margin: 0 auto;
         }
 
         .section-title {
@@ -275,6 +319,7 @@
         /* Features Section */
         .features-section {
             padding: 80px 0;
+            background: linear-gradient(135deg, #f8f6ff 0%, #f0edff 100%);
         }
 
         .features-grid {
@@ -286,41 +331,78 @@
 
         .feature-card {
             display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
         }
 
         .feature-icon {
             flex-shrink: 0;
+            margin-bottom: 1.5rem;
             transition: transform 0.3s ease;
+            position: relative;
         }
 
         .feature-icon img {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
+            filter: drop-shadow(0 4px 12px rgba(102, 126, 234, 0.2));
+            transition: all 0.3s ease;
         }
 
         .feature-icon:hover {
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-icon:hover img {
+            filter: drop-shadow(0 8px 20px rgba(102, 126, 234, 0.3));
         }
 
         .feature-content h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
             color: #2d3748;
+            position: relative;
         }
 
         .feature-content p {
             color: #718096;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1rem;
+            max-width: 280px;
+            margin: 0 auto;
         }
 
         /* Benefits Section */
         .benefits-section {
             padding: 80px 0;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
         }
 
         .benefits-container {
@@ -491,13 +573,29 @@
             }
             
             .feature-card {
-                gap: 1.5rem;
-                padding: 1rem;
+                padding: 1.5rem 1rem;
             }
             
             .feature-icon img {
-                width: 60px;
-                height: 60px;
+                width: 80px;
+                height: 80px;
+            }
+            
+            .feature-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .problem-card {
+                padding: 2rem 1rem;
+            }
+            
+            .problem-icon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .problem-card h3 {
+                font-size: 1.2rem;
             }
             
             .benefits-container {
@@ -512,15 +610,39 @@
 
         @media (max-width: 480px) {
             .feature-card {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-                padding: 1rem 0.5rem;
+                padding: 1.5rem 0.5rem;
             }
             
             .feature-icon img {
-                width: 50px;
-                height: 50px;
+                width: 70px;
+                height: 70px;
+            }
+            
+            .feature-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .feature-content p {
+                font-size: 0.9rem;
+                max-width: 250px;
+            }
+            
+            .problem-card {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            .problem-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .problem-card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .problem-card p {
+                font-size: 0.9rem;
+                max-width: 250px;
             }
         }
 
@@ -690,17 +812,23 @@
             
             <div class="problem-grid">
                 <div class="problem-card fade-in-up stagger-1">
-                    <img src="images/undraw_forgot-password_nttj.svg" alt="Manual Errors" class="problem-icon">
+                    <div class="problem-icon">
+                        <img src="images/undraw_forgot-password_nttj.svg" alt="Manual Errors">
+                    </div>
                     <h3>Manual Errors</h3>
                     <p>Spreadsheet mistakes and manual calculations lead to pricing errors that cost thousands per deal</p>
                 </div>
                 <div class="problem-card fade-in-up stagger-2">
-                    <img src="images/undraw_pending-approval_6cdu.svg" alt="Slow Approvals" class="problem-icon">
+                    <div class="problem-icon">
+                        <img src="images/undraw_pending-approval_6cdu.svg" alt="Slow Approvals">
+                    </div>
                     <h3>Slow Approvals</h3>
                     <p>Deals sit in email chains for weeks while competitors close similar agreements faster</p>
                 </div>
                 <div class="problem-card fade-in-up stagger-3">
-                    <img src="images/undraw_data-analysis_b7cp.svg" alt="Outdated Data" class="problem-icon">
+                    <div class="problem-icon">
+                        <img src="images/undraw_data-analysis_b7cp.svg" alt="Outdated Data">
+                    </div>
                     <h3>Outdated Data</h3>
                     <p>Making decisions with stale traffic reports and outdated pricing means missing opportunities and overcommitting on unprofitable routes</p>
                 </div>
