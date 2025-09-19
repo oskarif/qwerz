@@ -253,7 +253,7 @@
         }
 
         /* Mobile Navigation Styles */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .hamburger-menu {
                 display: flex;
             }
@@ -331,7 +331,7 @@
         }
 
         /* Hide mobile logo on desktop */
-        @media (min-width: 769px) {
+        @media (min-width: 901px) {
             .mobile-logo {
                 display: none;
             }
@@ -946,7 +946,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
 
             .hero {
                 min-height: 70vh;
@@ -1417,7 +1417,7 @@
 
         // Close menu on window resize if screen becomes larger
         window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 900) {
                 hamburgerMenu.classList.remove('active');
                 navLinks.classList.remove('active');
                 document.body.style.overflow = '';
