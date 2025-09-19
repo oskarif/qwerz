@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DealFlow | Telecom Deal Management Reimagined</title>
+    <title>Signature | Telecom Deal Management Reimagined</title>
     <style>
         * {
             margin: 0;
@@ -111,6 +111,27 @@
         .hero-content {
             position: relative;
             z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            grid-column: 2;
+            text-align: center;
+        }
+
+        .hero-image-left {
+            grid-column: 1;
+            justify-self: center;
+        }
+
+        .hero-image-right {
+            grid-column: 3;
+            justify-self: center;
         }
 
         .hero h1 {
@@ -135,6 +156,31 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-bottom: 3rem;
+        }
+
+        .hero-image {
+            max-width: 280px;
+            height: auto;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-5px);
+            opacity: 1;
+        }
+
+        .hero-image-left .hero-image {
+            transform: rotate(-8deg);
+        }
+
+        .hero-image-right .hero-image {
+            transform: rotate(8deg);
+        }
+
+        .hero-image-left .hero-image:hover,
+        .hero-image-right .hero-image:hover {
+            transform: translateY(-5px) rotate(0deg);
         }
 
         .btn-primary {
@@ -345,6 +391,23 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .hero-text {
+                grid-column: 1;
+            }
+            
+            .hero-image-left,
+            .hero-image-right {
+                display: none;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -404,37 +467,19 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content fade-in-up">
-                <h1>Telecom Deal Management<br>Reimagined</h1>
-                <p>Stop losing deals to manual errors and slow approvals. Manage your bilateral wholesale and SMS agreements in one intelligent platform with real-time data and seamless workflows.</p>
-                <div class="hero-buttons">
-                    <a href="#demo" class="btn-primary">Start Free Trial</a>
-                    <a href="#features" class="btn-secondary">See Features</a>
+                <div class="hero-image-left fade-in-up stagger-1">
+                    <img src="images/undraw_ideas-flow_lwpa.svg" alt="Ideas and Innovation Flow" class="hero-image">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem-section">
-        <div class="container">
-            <h2 class="section-title">The Hidden Costs of Manual Deal Management</h2>
-            <p class="section-subtitle">Every day your team struggles with these challenges costs you deals, time, and money</p>
-            
-            <div class="problem-grid">
-                <div class="problem-card fade-in-up stagger-1">
-                    <div class="problem-icon">⚠️</div>
-                    <h3>Manual Errors</h3>
-                    <p>Spreadsheet mistakes and manual calculations lead to pricing errors that cost thousands per deal</p>
+                <div class="hero-text">
+                    <h1>Telecom Deal Management<br>Reimagined</h1>
+                    <p>Stop losing deals to manual errors and slow approvals. Manage your bilateral wholesale and SMS agreements in one intelligent platform with real-time data and seamless workflows.</p>
+                    <div class="hero-buttons">
+                        <a href="#demo" class="btn-primary">Start Free Trial</a>
+                        <a href="#features" class="btn-secondary">See Features</a>
+                    </div>
                 </div>
-                <div class="problem-card fade-in-up stagger-2">
-                    <div class="problem-icon">🐌</div>
-                    <h3>Slow Approvals</h3>
-                    <p>Deals sit in email chains for weeks while competitors close similar agreements faster</p>
-                </div>
-                <div class="problem-card fade-in-up stagger-3">
-                    <div class="problem-icon">📊</div>
-                    <h3>Outdated Data</h3>
-                    <p>Making decisions with stale traffic reports and outdated pricing means missing opportunities and overcommitting on unprofitable routes</p>
+                <div class="hero-image-right fade-in-up stagger-3">
+                    <img src="images/undraw_visionary-technology_f6b3.svg" alt="Visionary Technology" class="hero-image">
                 </div>
             </div>
         </div>
@@ -517,6 +562,32 @@
                         <h3>Advanced Deal Tracking</h3>
                         <p>Monitor deal performance with live traffic data and projections. Track net costs and revenue in real-time for better decision making.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">The Hidden Costs of Manual Deal Management</h2>
+            <p class="section-subtitle">Every day your team struggles with these challenges costs you deals, time, and money</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card fade-in-up stagger-1">
+                    <div class="problem-icon">⚠️</div>
+                    <h3>Manual Errors</h3>
+                    <p>Spreadsheet mistakes and manual calculations lead to pricing errors that cost thousands per deal</p>
+                </div>
+                <div class="problem-card fade-in-up stagger-2">
+                    <div class="problem-icon">🐌</div>
+                    <h3>Slow Approvals</h3>
+                    <p>Deals sit in email chains for weeks while competitors close similar agreements faster</p>
+                </div>
+                <div class="problem-card fade-in-up stagger-3">
+                    <div class="problem-icon">📊</div>
+                    <h3>Outdated Data</h3>
+                    <p>Making decisions with stale traffic reports and outdated pricing means missing opportunities and overcommitting on unprofitable routes</p>
                 </div>
             </div>
         </div>
