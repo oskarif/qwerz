@@ -215,68 +215,128 @@
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
         }
 
-        /* Mobile Menu */
-        .mobile-menu-toggle {
+        /* Hamburger Menu Styles */
+        .hamburger-menu {
             display: none;
-            background: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+            background: transparent;
             border: none;
             cursor: pointer;
-            padding: 0.5rem;
-            flex-direction: column;
-            gap: 4px;
+            padding: 0;
+            z-index: 1001;
+            position: relative;
         }
 
-        .mobile-menu-toggle span {
-            width: 25px;
+        .hamburger-line {
+            width: 100%;
             height: 3px;
             background: #4a5568;
-            transition: all 0.3s ease;
             border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
         }
 
-        .mobile-menu-toggle.active span:nth-child(1) {
+        .hamburger-menu.active .hamburger-line:nth-child(1) {
             transform: rotate(45deg) translate(6px, 6px);
         }
 
-        .mobile-menu-toggle.active span:nth-child(2) {
+        .hamburger-menu.active .hamburger-line:nth-child(2) {
             opacity: 0;
+            transform: scaleX(0);
         }
 
-        .mobile-menu-toggle.active span:nth-child(3) {
+        .hamburger-menu.active .hamburger-line:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(226, 232, 240, 0.5);
-            padding: 1rem 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1000;
+                padding: 0;
+                margin: 0;
+                display: flex; /* Override the display: none from the other media query */
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background: rgba(102, 126, 234, 0.1);
+                transform: translateY(-2px);
+            }
+
+            .nav-links a.cta-button {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white !important;
+                padding: 1rem 2rem !important;
+                border-radius: 12px;
+                font-size: 1.1rem;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            }
+
+            .nav-links a.cta-button:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            }
+
+            /* Mobile logo styling */
+            .mobile-logo {
+                margin-bottom: 1rem !important;
+            }
+
+            .mobile-logo .logo {
+                font-size: 2rem;
+                margin-bottom: 0;
+            }
+
+            .mobile-logo .logo-image {
+                height: 2.2rem;
+            }
+
+            .mobile-logo .by-text {
+                font-size: 1.1rem;
+            }
         }
 
-        .mobile-menu.active {
-            display: block;
+        /* Hide mobile logo on desktop */
+        @media (min-width: 769px) {
+            .mobile-logo {
+                display: none;
+            }
         }
 
-        .mobile-menu .nav-links {
-            flex-direction: column;
-            gap: 1rem;
-            padding: 0 20px;
-        }
-
-        .mobile-menu .nav-links a {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.3);
-        }
-
-        .mobile-menu .nav-links a:last-child {
-            border-bottom: none;
-        }
 
         /* Hero Section */
         .hero {
@@ -887,6 +947,7 @@
         }
 
         @media (max-width: 768px) {
+
             .hero {
                 min-height: 70vh;
                 padding: 140px 0 30px;
@@ -944,13 +1005,6 @@
                 gap: 2rem;
             }
             
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: flex;
-            }
 
             .logo {
                 font-size: 2.2rem;
@@ -1027,28 +1081,29 @@
                 <span class="by-text">by</span>
                 <img src="images/signa_retina.png" alt="Signa Logo" class="logo-image">
             </div>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#benefits">Benefits</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#demo" class="cta-button">Request Demo</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
-        </nav>
-        <div class="mobile-menu" id="mobile-menu">
-            <ul class="nav-links">
+            
+            <ul class="nav-links" id="nav-links">
+                <li class="mobile-logo">
+                    <div class="logo">
+                        <span>Signature</span>
+                        <span class="by-text">by</span>
+                        <img src="images/signa_retina.png" alt="Signa Logo" class="logo-image">
+                    </div>
+                </li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#benefits">Benefits</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#demo" class="cta-button">Request Demo</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -1322,33 +1377,52 @@
 
         // Animation observer removed - keeping hover effects only
 
-        // Mobile menu functionality
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
-                mobileMenuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            }
-        });
 
         // Update current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Hamburger menu functionality
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburgerMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking on a link
+        navLinks.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu on window resize if screen becomes larger
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 </body>
 </html>
