@@ -1147,9 +1147,12 @@
             border-radius: 16px;
             width: 90%;
             max-width: 500px;
+            max-height: 90vh;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             animation: slideIn 0.3s ease;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .modal-header {
@@ -1191,6 +1194,8 @@
 
         .modal-body {
             padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
         }
 
         .contact-intro {
@@ -1336,9 +1341,10 @@
         /* Responsive Modal */
         @media (max-width: 600px) {
             .modal-content {
-                margin: 10% auto;
+                margin: 2vh auto;
                 width: 95%;
                 max-width: none;
+                max-height: 96vh;
             }
 
             .modal-header {
@@ -1351,6 +1357,8 @@
 
             .modal-body {
                 padding: 1.5rem;
+                overflow-y: auto;
+                flex: 1;
             }
 
             .form-group input,
