@@ -469,17 +469,12 @@
             filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
         }
 
-        .hero-image-left .hero-image {
-            transform: rotate(-12deg);
+        .hero-image-left .hero-image:hover {
+            transform: translateY(-8px) scale(1.05) rotate(-12deg);
         }
 
-        .hero-image-right .hero-image {
-            transform: rotate(12deg);
-        }
-
-        .hero-image-left .hero-image:hover,
         .hero-image-right .hero-image:hover {
-            transform: translateY(-8px) scale(1.05) rotate(0deg);
+            transform: translateY(-8px) scale(1.05) rotate(12deg);
         }
 
         .btn-primary {
@@ -855,17 +850,12 @@
             opacity: 1;
         }
 
-        .cta-image-left .cta-image {
-            transform: rotate(-5deg);
+        .cta-image-left .cta-image:hover {
+            transform: translateY(-5px) rotate(-5deg);
         }
 
-        .cta-image-right .cta-image {
-            transform: rotate(5deg);
-        }
-
-        .cta-image-left .cta-image:hover,
         .cta-image-right .cta-image:hover {
-            transform: translateY(-5px) rotate(0deg);
+            transform: translateY(-5px) rotate(5deg);
         }
 
         .cta-section h2 {
